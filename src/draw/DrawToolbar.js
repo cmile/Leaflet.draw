@@ -13,6 +13,9 @@ L.DrawToolbar = L.Toolbar.extend({
 		circle: {
 			title: 'Draw a circle'
 		},
+		xmp: {
+			title: 'Place an XMP'
+		},
 		marker: {
 			title: 'Add a marker'
 		}
@@ -60,6 +63,15 @@ L.DrawToolbar = L.Toolbar.extend({
 		if (this.options.circle) {
 			this._initModeHandler(
 				new L.Draw.Circle(map, this.options.circle),
+				this._toolbarContainer,
+				buttonIndex++,
+				buttonClassPrefix
+			);
+		}
+
+		if (this.options.xmp) {
+			this._initModeHandler(
+				new L.Draw.XMP(map, this.options.xmp),
 				this._toolbarContainer,
 				buttonIndex++,
 				buttonClassPrefix
